@@ -20,6 +20,7 @@ public class Employee{
         {
             t = t.add(a[i].tin.sub(a[i].tout));
         }
+        System.out.print("Name:"+name+"\nHours Worked:");
         display(t);
     }
     
@@ -30,7 +31,14 @@ public class Employee{
             if(a[i].dd==dd && a[i].mm==mm && a[i].yy==yy)
             {
                 Time t = a[i].tin.sub(a[i].tout);
+                System.out.println("Name:"+name);
+                System.out.print("IN Time:");
+                display(a[i].tin);
+                System.out.print("OUT Time:");
+                display(a[i].tout);
+                System.out.print("Hours Worked on "+dd+"/"+mm+"/"+yy+" :");
                 display(t);
+                
             }
         }
     }
