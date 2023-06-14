@@ -4,10 +4,12 @@ public class Customer implements Serializable{
     static int id = 0;
     String cid;
     String name;
+    int n;
     Product p[];
     
-    Customer(Product[] p)
+    Customer(int n, Product[] p)
     {
+        this.n=n;
         this.p = p;
         id=id+1;
         if(id>=1 && id<=9)
