@@ -1,12 +1,12 @@
-package practical6;
+package shreyansh.practical6;
 import java.io.Serializable;
 public class Customer implements Serializable{
     static int id = 0;
     String cid;
     String name;
-    Product p;
+    Product p[];
     
-    Customer(Product p)
+    Customer(Product[] p)
     {
         this.p = p;
         id=id+1;
@@ -20,6 +20,6 @@ public class Customer implements Serializable{
     
     public String toString()
     {
-        return "Customer:"+cid+", Name:"+name+", Product Details:"+p;
+        return "Customer ID:"+cid+", Name:"+name+", Product Details:\n";
     }
 }
