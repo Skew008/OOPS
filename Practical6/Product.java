@@ -1,4 +1,4 @@
-package practical6;
+package shreyansh.practical6;
 import java.io.Serializable;
 public class Product implements Serializable{
     int id;
@@ -16,6 +16,6 @@ public class Product implements Serializable{
     
     public String toString()
     {
-        return "Id:"+id+", Product Name:"+name+", Quantity:"+quantity+", Price:"+price;
+        return "Id:"+id+", Product Name:"+name+", Quantity:"+quantity+", Price:"+price+"\n";
     }
 }
