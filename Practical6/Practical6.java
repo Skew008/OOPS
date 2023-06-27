@@ -66,7 +66,7 @@ public class Practical6 implements Serializable{
             }
             for(int i=0; i<=prodcount; i++)
             {
-                System.out.println(pstore[i]);
+                //System.out.println(pstore[i]);
                 p1.writeObject(pstore[i]);
             }
             c1.flush();
