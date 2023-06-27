@@ -19,6 +19,7 @@ public class Practical6 implements Serializable{
             Product[] pstore = new Product[5];
             for(int i=0; i<2; i++)
             {
+                System.out.println("Customer "+(i+1));
                 String s;
                 System.out.print("Enter number of products:");
                 s = console.readLine();
