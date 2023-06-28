@@ -50,8 +50,10 @@ public class MyArray<T> {
     {
         for(int i=0; i<size; i++)
         {
-            T a = (T)arr[i];
-            System.out.println(a);
+            if(arr[i]!=null){
+                T a = (T)arr[i];
+                System.out.println(a);
+            }
         }
     }
 }
