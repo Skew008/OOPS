@@ -2,7 +2,7 @@ package shreyansh.practical7;
 
 public class MyArray<T> {
     int index;
-    int prev = -1;
+    //int prev = -1;
     int size;
     Object[] arr;
     Object[] temp;
@@ -11,32 +11,49 @@ public class MyArray<T> {
     {
         size = s;
         arr = new Object[size];
-        index=size-1;
+        index=0;
+        //index=size-1;
     }
+    
+//    void add(T i)
+//    {
+//       if(index > prev)
+//       {
+//           arr[index] = i;
+//           index--;
+//       }
+//       else 
+//       {
+//           grow();
+//           arr[index] = i;
+//           index--;
+//       }
+//    }
     
     void add(T i)
     {
-       if(index > prev)
+       if(index < size)
        {
            arr[index] = i;
-           index--;
+           index++;
        }
        else 
        {
            grow();
            arr[index] = i;
-           index--;
+           index++;
        }
     }
     
     private void grow()
     {
         temp = arr;
-        prev=size-1;
+        //prev=size-1;
         size = (size*3)/2;
-        index=size-1;
+        //index=prev+1;
         arr = new Object[size];
-        for(int i=0; i<=prev; i++){arr[i]=temp[i];}
+        //for(int i=0; i<=prev; i++){arr[i]=temp[i];}
+        for(int i=0; i<index; i++){arr[i]=temp[i];}
     }
     
     void swap(int a, int b)
