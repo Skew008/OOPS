@@ -17,18 +17,31 @@ public class StudentPhoneDirectory {
         this.s = new Student[size];
     }
     
-    void addStudent(int r, String n, int s, String c, String con)
+    void addStudent(int r, String n, int s, String c, String con) throws myException
     {
-        if(index<size)
-        {
-            length++;
-            index++;
-            this.s[index] = new Student(r,n,s,c,con);
+        try{
+            if(r==0 || n.equals("") || s==0 || c.equals("") || con.equals(""))
+            {
+                throw new myException("Missing some data of "+n+"(So not added).");
+            }
+            else
+            {
+                if(index<size)
+                {
+                    length++;
+                    index++;
+                    this.s[index] = new Student(r,n,s,c,con);
+                }
+                ArrayList<Student> al = new ArrayList<>();
+                for(int i=0; i<length; i++){al.add(this.s[i]);}
+                Collections.sort(al, new comp());
+                for(int i=0; i<length; i++){this.s[i] = al.get(i);}
+            }
         }
-        ArrayList<Student> al = new ArrayList<>();
-        for(int i=0; i<length; i++){al.add(this.s[i]);}
-        Collections.sort(al, new comp());
-        for(int i=0; i<length; i++){this.s[i] = al.get(i);}
+        catch(myException e)
+        {
+            System.out.println(e.message);
+        }
     }
     
     void removeStudent(String n)
@@ -47,7 +60,7 @@ public class StudentPhoneDirectory {
             }
         }
         if(flag==0)
-            System.out.println("No student with name "+n+" exist in direcetory");
+            System.out.println("No student with name "+n+" exist in directory");
     }
     
     void viewcity(String c)
@@ -59,7 +72,7 @@ public class StudentPhoneDirectory {
             if(s[i]!=null){
             if(c.equals(s[i].city))
             {
-                System.out.println("Name:"+s[i].name+", Phone:"+s[i].contact);
+                System.out.println("Name:"+s[i].name+", Roll Number:"+s[i].roll+", Semester:"+s[i].sem+", Phone:"+s[i].contact+", City:"+s[i].city);
                 flag++;
             }}
             i++;
@@ -76,7 +89,7 @@ public class StudentPhoneDirectory {
         {
             if(s[i]!=null)
             {
-                System.out.println("Name:"+s[i].name+", Phone:"+s[i].contact);
+                System.out.println("Name:"+s[i].name+", Roll Number:"+s[i].roll+", Semester:"+s[i].sem+", Phone:"+s[i].contact+", City:"+s[i].city);
                 flag++;
             }
             i++;
@@ -86,7 +99,7 @@ public class StudentPhoneDirectory {
     }
 }
 
-class myException{
+class myException extends Exception{
     
     String message;
     
@@ -95,6 +108,7 @@ class myException{
         message = d;
     }
     
+    @Override
     public String toString()
     {
         return message;
